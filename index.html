@@ -8,13 +8,14 @@
 </head>
 <body>
 
-    <button id="btn-acessibilidade">
+    <button id="btn-acessibilidade"
         aria-label="Acessibilidade"
         aria-expanded="false"
         onclick="toggleAcessibilidade()">
+        Acessibilidade
     </button>
 
-    <div id="acessibilidade">
+    <div id="acessibilidade" aria-hidden="true">
         <button onclick="alterarFonte(1)">A+</button>
         <button onclick="alterarFonte(-1)">A-</button>
         <button onclick="alternarContraste()">Contraste</button>
@@ -48,6 +49,8 @@
     <section id="sobre" class="container">
         <h2>Sobre Nós</h2>
         <p>Na Trator Mais, oferecemos uma ampla gama de tratores usados, todos inspecionados e prontos para o trabalho. Nossa missão é fornecer tratores de qualidade a preços acessíveis.</p>
+        <p>Desde 2010, temos ajudado nossos clientes a encontrar o trator ideal para suas necessidades. Nossos tratores são selecionados com rigor para garantir a melhor performance e durabilidade.</p>
+        <p>Nossos tratores vem de leilões beneficentes, vem de desmanches e são vistoriados e consertados aqui mesmo para garantir o funcionamento e a usabilidade das nossas máquinas.</p>
     </section>
 
     <section id="produtos" class="container">
@@ -102,8 +105,8 @@
         <p>Se você tiver alguma dúvida ou precisar de mais informações, não hesite em nos contatar:</p>
         <ul>
             <li>Email: contato@tratormais.com.br</li>
-            <li>Telefone: (11) 1234-5678</li>
-            <li>Endereço: Rua dos Tratores, 123 - São Paulo, SP</li>
+            <li>Telefone: (41) 99138-3554</li>
+            <li>Endereço: Rua Vicente Augusto, 42 - São José dos Pinhais, PR</li>
         </ul>
     </section>
 
@@ -119,7 +122,7 @@
     const painel = document.getElementById('acessibilidade');
     const botao  = document.getElementById('btn-acessibilidade');
 
-    const aberto = painel.classList.toggle('open');   // adiciona/remove .open
+    const aberto = painel.classList.toggle('open');
     painel.setAttribute('aria-hidden', !aberto);
     botao.setAttribute('aria-expanded', aberto);
   }

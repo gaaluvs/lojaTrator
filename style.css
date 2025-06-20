@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'dealerplate_california';
+    src: url('fonts/dealerplate california.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -48,7 +55,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'dealerplate_california', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
@@ -58,6 +65,7 @@ body {
     max-width: 1000px;
     margin: auto;
     padding: 20px;
+    font-family: 'dealerplate_california', sans-serif;
 }
 
 header {
@@ -67,6 +75,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    font-family: 'dealerplate_california', sans-serif;
 }
 
 header .container {
@@ -217,17 +226,19 @@ footer {
 
 #btn-acessibilidade {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    border: none;
-    border-radius: 50%;
-    background: #2d572c;
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 10001;
+  top: 20px;
+  right: 20px;
+  background: black;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 #acessibilidade {
