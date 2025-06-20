@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trator Mais - A sua loja de tratores usados.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="btn-acessibilidade">
+        aria-label="Acessibilidade"
+        aria-expanded="false"
+        onclick="toggleAcessibilidade()">
+    </button>
+
+    <div id="acessibilidade">
+        <button onclick="alterarFonte(1)">A+</button>
+        <button onclick="alterarFonte(-1)">A-</button>
+        <button onclick="alternarContraste()">Contraste</button>
+        <button onclick="ativarLeitorTela()">Leitor de Tela</button>
+        <button onclick="pausarLeitorTela()">Pausar Leitor de Tela</button>
+        <button onclick="retomarLeitorTela()">Retomar Leitor de Tela</button>
+        <button onclick="pararLeitorTela()">Parar Leitor de Tela</button>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Trator Mais</h1>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#serviços">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="banner">
+        <div class="container">
+            <h2>Bem-vindo à Trator Mais</h2>
+            <p>A sua loja de tratores usados com os melhores preços e qualidade.</p>
+        </div>
+    </section>
+
+    <section id="sobre" class="container">
+        <h2>Sobre Nós</h2>
+        <p>Na Trator Mais, oferecemos uma ampla gama de tratores usados, todos inspecionados e prontos para o trabalho. Nossa missão é fornecer tratores de qualidade a preços acessíveis.</p>
+    </section>
+
+    <section id="produtos" class="container">
+        <h2>Nossos Tratores</h2>
+        <div class="produtos-lista-grid">
+            <div class="produto-item">
+                <img src="img/John-Deere5503.jpg" alt="Trator John Deere 5503">
+                <h3>Trator John Deere 5503</h3>
+                <p>75cv, ideal para lavouras de médio porte</p>
+                <h4>R$ 100.000,00</h4>
+            </div>
+            <div class="produto-item">
+                <img src="img/Valtra_Q305.jpg" alt="Trator Valtra Q305">
+                <h3>Trator Valtra Q305</h3>
+                <p>100cv, robusto e confiável para grandes áreas</p>
+                <h4>R$ 110.000,00</h4>
+            </div>
+            <div class="produto-item">
+                <img src="img/Massey_Ferguson_4275.jpg" alt="Trator Massey Ferguson 4275">
+                <h3>Trator Massey Ferguson 4275</h3>
+                <p>85cv, versátil para diversas aplicações</p>
+                <h4>R$ 135.000,00</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="serviços" class="container">
+        <h2>Nossos Serviços</h2>
+        <p>Na Trator Mais, não vendemos apenas tratores; também oferecemos uma gama de serviços para atender às suas necessidades:</p>
+        <ul>
+            <li>Manutenção e Reparos</li>
+            <li>Consultoria Agronômica</li>
+            <li>Financiamento Facilitado</li>
+        </ul>
+    </section>
+
+    <section id="contato" class="container">
+        <h2>Tire suas dúvidas</h2>
+        <form>
+            <label for="nome">Seu nome</label>
+            <input type="text" id="nome" placeholder="Seu nome" required>
+            <label for="email">Seu email</label>
+            <input type="email" id="email" placeholder="Seu email" required>
+            <label for="mensagem">Sua mensagem</label>
+            <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <section id="contato" class="container">
+        <h2>Fale Conosco</h2>
+        <p>Se você tiver alguma dúvida ou precisar de mais informações, não hesite em nos contatar:</p>
+        <ul>
+            <li>Email: contato@tratormais.com.br</li>
+            <li>Telefone: (11) 1234-5678</li>
+            <li>Endereço: Rua dos Tratores, 123 - São Paulo, SP</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Trator Mais. Todos os direitos reservados.</p>
+    </footer>
+
+    
+
+    <script>
+
+        function toggleAcessibilidade() {
+    const painel = document.getElementById('acessibilidade');
+    const botao  = document.getElementById('btn-acessibilidade');
+
+    const aberto = painel.classList.toggle('open');   // adiciona/remove .open
+    painel.setAttribute('aria-hidden', !aberto);
+    botao.setAttribute('aria-expanded', aberto);
+  }
+
+        let tamanhoFonte = 100;
+        
+        function alterarFonte(valor) {
+            tamanhoFonte += valor * 10;
+            document.body.style.fontSize = tamanhoFonte + '%';
+        }
+
+        function alternarContraste() {
+            document.body.classList.toggle('alto-contraste');
+        }
+
+        function ativarLeitorTela() {
+            const texto = document.body.innerText;
+            const synth = window.speechSynthesis;
+            const utter = new SpeechSynthesisUtterance(texto);
+            synth.cancel();
+            synth.speak(utter);
+        }
+
+        function pausarLeitorTela() {
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.pause();
+            }
+        }
+
+        function retomarLeitorTela() {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            }
+        }
+
+        function pararLeitorTela() {
+            window.speechSynthesis.cancel();
+        }
+    </script>
+</body>
+
+</html>
